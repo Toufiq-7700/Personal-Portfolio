@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOUFIQ — Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Stylesheets (order matters: variables first) -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/splash.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/monitor.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+
+  <!-- GSAP (CDN) — loaded before our modules -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════
+       SPLASH
+  ════════════════════════════════════════ -->
+  <div id="splash" role="status" aria-label="Loading">
+    <span class="splash__label">Welcome</span>
+    <p class="splash__name">TOUFIQ<span class="dot">.</span></p>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SITE WRAPPER
+  ════════════════════════════════════════ -->
+  <div id="site">
+
+    <!-- NAV ─────────────────────────────── -->
+    <header>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__logo" href="#home">TOUFIQ<span class="dot">.</span></a>
+
+        <ul class="nav__links" role="list">
+          <li><a class="nav__link is-active" href="#home">Home</a></li>
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#skills">Skills</a></li>
+          <li><a class="nav__link" href="#projects">Projects</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+
+        <a class="nav__cta" href="#contact">Hire Me</a>
+      </nav>
+    </header>
+
+    <!-- MAIN ────────────────────────────── -->
+    <main>
+
+      <!-- HERO ──────────────────────────── -->
+      <section class="hero" id="home" aria-label="Introduction">
+
+        <!-- Left -->
+        <div class="hero__left">
+
+          <h1 class="hero__greeting">
+            Hi, I'm <span class="name">TOUFIQ,</span>
+            <br />
+            <span class="hero__cursor" aria-hidden="true"></span>
+          </h1>
+
+          <p class="hero__desc">
+            I build considered digital experiences with a clean, modern
+            point of view.
+          </p>
+
+          <div class="hero__btns">
+            <a class="btn btn--primary" href="#projects">
+              View My Work
+              <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+
+            <a class="btn btn--ghost" href="#contact">
+              Contact Me
+            </a>
+
+            <a class="btn btn--ghost" href="#" download>
+              <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+              View Resume
+            </a>
+          </div>
+
+          <div class="hero__socials" aria-label="Social links">
+            <!-- Instagram -->
+            <a class="social-icon" href="#" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <!-- GitHub -->
+            <a class="social-icon" href="#" aria-label="GitHub" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a class="social-icon" href="#" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+          </div>
+
+        </div><!-- /.hero__left -->
+
+        <!-- Right — Professional Portrait Card -->
+        <div class="hero__right">
+          <div class="profile-card">
+
+            <!-- Accent dot top-right -->
+            <span class="profile-card__dot" aria-hidden="true"></span>
+
+            <!-- Image wrapper -->
+            <div class="profile-card__img-wrap">
+              <img
+                class="profile-card__photo"
+                src="assets/images/toufiq-profile.jpg"
+                alt="Toufiq — portfolio photo"
+                loading="eager"
+              />
+              <!-- Gradient overlay -->
+              <div class="profile-card__overlay" aria-hidden="true"></div>
+              <!-- Name badge -->
+              <div class="profile-card__badge">
+                <span class="badge__name">TOUFIQ</span>
+                <span class="badge__role">AI Researcher</span>
+              </div>
+            </div><!-- /.profile-card__img-wrap -->
+
+            <!-- Floating stat pill -->
+            <div class="profile-card__stat" aria-label="Open to work">
+              <div class="stat__icon" aria-hidden="true">
+                <!-- lightning bolt icon -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <div class="stat__text">
+                <span class="stat__value">Open to Work</span>
+                <span class="stat__label">Available Now</span>
+              </div>
+            </div><!-- /.profile-card__stat -->
+
+          </div><!-- /.profile-card -->
+        </div><!-- /.hero__right -->
+
+      </section><!-- /#home -->
+
+    </main>
+  </div><!-- /#site -->
+
+  <!-- Scripts -->
+  <script src="js/splash.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>

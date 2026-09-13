@@ -1,0 +1,44 @@
+/* ============================================================
+   DESIGN TOKENS
+   All colour, typography, spacing & easing in one place.
+   ============================================================ */
+
+:root {
+  /* — Palette — */
+  --color-bg: #f0e8db;
+  /* warm cream background */
+  --color-bg-alt: #e8ddd0;
+  /* slightly darker cream */
+  --color-dark: #1a1208;
+  /* deep near-black (warm) */
+  --color-maroon: #7a1f1f;
+  /* deep maroon */
+  --color-accent: #8b3a1e;
+  /* rust/maroon accent (dot, hover) */
+  --color-mid: #3d2b1f;
+  /* mid dark brown */
+  --color-muted: #7a6a58;
+  /* muted warm grey */
+  --color-border: rgba(90, 50, 20, 0.12);
+
+
+  /* — Profile Card shadow — */
+  --card-shadow: rgba(90, 40, 10, 0.22);
+
+
+  /* — Typography — */
+  --font-sans: 'Montserrat', sans-serif;
+
+  /* — Spacing — */
+  --nav-height: 70px;
+  --page-pad-x: 60px;
+  --page-pad-x-sm: 24px;
+
+  /* — Easings (for GSAP and CSS) — */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* — Transitions — */
+  --transition-fast: 0.22s ease;
+  --transition-med: 0.35s ease;
+}
