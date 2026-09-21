@@ -51,6 +51,48 @@ function animateHomepageIn() {
   });
 }
 
+// ── Typewriter Effect ────────────────────────────────────────────
+function initTypewriter() {
+  const words = ['AI Researcher', 'AI/ML Engineer', 'Software Engineer', 'Backend Developer', 'Problem Solver'];
+  const el = document.getElementById('typewriter');
+  if (!el) return;
+
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function type() {
+    const currentWord = words[wordIndex];
+    
+    if (isDeleting) {
+      el.textContent = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      el.textContent = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    let typeSpeed = isDeleting ? 40 : 80;
+
+    // Pause at end of word
+    if (!isDeleting && charIndex === currentWord.length) {
+      typeSpeed = 2000;
+      isDeleting = true;
+    } 
+    // Move to next word
+    else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      typeSpeed = 400; // Pause before starting next word
+    }
+
+    setTimeout(type, typeSpeed);
+  }
+
+  // Start initial typing
+  setTimeout(type, 800);
+}
+
 // ── Bootstrap ────────────────────────────────────────────────────
 window.addEventListener('load', () => {
   // Initialise navigation (smooth scroll + active link)
@@ -60,8 +102,13 @@ window.addEventListener('load', () => {
 
   // Run splash → then animate homepage in
   if (typeof window.runSplash === 'function') {
-    window.runSplash(animateHomepageIn);
+    window.runSplash(() => {
+      animateHomepageIn();
+      initTypewriter();
+    });
   } else {
     animateHomepageIn();
+    initTypewriter();
   }
 });
+
