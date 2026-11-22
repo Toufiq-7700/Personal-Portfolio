@@ -1,0 +1,57 @@
+/* ============================================================
+   SPLASH SCREEN
+   ============================================================ */
+
+#splash {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  /* GSAP will handle the exit animation */
+}
+
+.splash__label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  margin-bottom: 18px;
+  /* start hidden — GSAP animates in */
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+.splash__label::before,
+.splash__label::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: var(--color-mid);
+  opacity: 0.45;
+}
+
+.splash__name {
+  font-size: clamp(4.5rem, 13vw, 10rem);
+  font-weight: 900;
+  color: var(--color-dark);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  /* start hidden — GSAP animates in */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.splash__name .dot {
+  color: var(--color-accent);
+}
