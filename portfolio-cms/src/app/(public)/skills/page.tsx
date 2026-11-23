@@ -4,14 +4,17 @@ import { publicApi } from '@/lib/api';
 import type { Skill, SkillCategory } from '@/types';
 import { useState } from 'react';
 
+import { fallbackSkills, fallbackSkillCategories } from '@/lib/fallbackData';
+
 export default function SkillsPage() {
   const { data, isLoading } = useQuery({
     queryKey: ['public-skills'],
     queryFn: () => publicApi.skills().then(r => r.data as { data: Skill[]; categories: SkillCategory[] }),
+    retry: false,
   });
 
-  const skills = data?.data ?? [];
-  const categories = data?.categories ?? [];
+  const skills = data?.data && data.data.length > 0 ? data.data : fallbackSkills;
+  const categories = data?.categories && data.categories.length > 0 ? data.categories : fallbackSkillCategories;
   const [cat, setCat] = useState('All');
 
   const filtered = cat === 'All' ? skills : skills.filter(s => s.category_name === cat);
@@ -43,7 +46,7 @@ export default function SkillsPage() {
         ))}
       </div>
 
-      {isLoading ? (
+      {isLoading && skills.length === 0 ? (
         <div className="text-center py-20" style={{ color: 'var(--color-muted)' }}>Loading skills…</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">

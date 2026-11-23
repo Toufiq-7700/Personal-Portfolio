@@ -3,13 +3,16 @@ import { useQuery } from '@tanstack/react-query';
 import { publicApi } from '@/lib/api';
 import type { Education } from '@/types';
 
+import { fallbackEducation } from '@/lib/fallbackData';
+
 export default function EducationPage() {
   const { data, isLoading } = useQuery({
     queryKey: ['public-education'],
     queryFn: () => publicApi.education().then(r => r.data as { data: Education[] }),
+    retry: false,
   });
 
-  const items = data?.data ?? [];
+  const items = data?.data && data.data.length > 0 ? data.data : fallbackEducation;
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-20">
@@ -20,7 +23,7 @@ export default function EducationPage() {
           Academic <span style={{ color: 'var(--color-maroon)' }}>Background</span>
         </h1>
       </div>
-      {isLoading ? (
+      {isLoading && items.length === 0 ? (
         <div className="text-center py-20" style={{ color: 'var(--color-muted)' }}>Loading…</div>
       ) : (
         <div className="space-y-6">

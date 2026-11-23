@@ -4,13 +4,16 @@ import { publicApi } from '@/lib/api';
 import type { Research } from '@/types';
 import { ExternalLink } from 'lucide-react';
 
+import { fallbackResearch } from '@/lib/fallbackData';
+
 export default function ResearchPage() {
   const { data, isLoading } = useQuery({
     queryKey: ['public-research'],
     queryFn: () => publicApi.research().then(r => r.data as { data: Research[] }),
+    retry: false,
   });
 
-  const items = data?.data ?? [];
+  const items = data?.data && data.data.length > 0 ? data.data : fallbackResearch;
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-20">
@@ -21,7 +24,7 @@ export default function ResearchPage() {
           Research & <span style={{ color: 'var(--color-maroon)' }}>Publications</span>
         </h1>
       </div>
-      {isLoading ? (
+      {isLoading && items.length === 0 ? (
         <div className="text-center py-20" style={{ color: 'var(--color-muted)' }}>Loading…</div>
       ) : items.length === 0 ? (
         <div className="text-center py-20" style={{ color: 'var(--color-muted)' }}>No publications yet.</div>

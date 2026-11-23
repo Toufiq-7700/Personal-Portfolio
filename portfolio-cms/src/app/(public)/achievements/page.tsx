@@ -4,13 +4,16 @@ import { publicApi } from '@/lib/api';
 import type { Achievement } from '@/types';
 import { formatDate } from '@/lib/utils';
 
+import { fallbackAchievements } from '@/lib/fallbackData';
+
 export default function AchievementsPage() {
   const { data, isLoading } = useQuery({
     queryKey: ['public-achievements'],
     queryFn: () => publicApi.achievements().then(r => r.data as { data: Achievement[] }),
+    retry: false,
   });
 
-  const items = data?.data ?? [];
+  const items = data?.data && data.data.length > 0 ? data.data : fallbackAchievements;
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-20">
@@ -21,7 +24,7 @@ export default function AchievementsPage() {
           Achievements & <span style={{ color: 'var(--color-maroon)' }}>Awards</span>
         </h1>
       </div>
-      {isLoading ? (
+      {isLoading && items.length === 0 ? (
         <div className="text-center py-20" style={{ color: 'var(--color-muted)' }}>Loading…</div>
       ) : items.length === 0 ? (
         <div className="text-center py-20" style={{ color: 'var(--color-muted)' }}>No achievements yet.</div>

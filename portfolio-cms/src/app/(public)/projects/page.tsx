@@ -6,13 +6,16 @@ import { useState } from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
+import { fallbackProjects } from '@/lib/fallbackData';
+
 export default function ProjectsPage() {
   const { data, isLoading } = useQuery({
     queryKey: ['public-projects'],
     queryFn: () => publicApi.projects().then(r => r.data as { data: Project[] }),
+    retry: false,
   });
 
-  const projects = data?.data ?? [];
+  const projects = data?.data && data.data.length > 0 ? data.data : fallbackProjects;
   const categories = ['All', ...Array.from(new Set(projects.map(p => p.category).filter(Boolean))) as string[]];
   const [cat, setCat] = useState('All');
 
@@ -45,7 +48,7 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      {isLoading ? (
+      {isLoading && projects.length === 0 ? (
         <div className="text-center py-20" style={{ color: 'var(--color-muted)' }}>Loading projects…</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8">
