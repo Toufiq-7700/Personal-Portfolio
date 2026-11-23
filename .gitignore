@@ -3,3 +3,9 @@
 **/*.rs.bk
 Cargo.lock
 space-portfolio/
+portfolio-cms/node_modules/
+portfolio-cms/.next/
+portfolio-cms/.env.local
+portfolio-api/target/
+portfolio-api/.env
+

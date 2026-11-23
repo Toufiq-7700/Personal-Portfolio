@@ -1,0 +1,30 @@
+[package]
+name = "portfolio-api"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "portfolio-api"
+path = "src/main.rs"
+
+[dependencies]
+axum = { version = "0.7", features = ["macros", "multipart"] }
+tokio = { version = "1", features = ["full"] }
+tower-http = { version = "0.5", features = ["cors", "trace", "timeout"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sqlx = { version = "0.8", default-features = false, features = ["postgres", "runtime-tokio-rustls", "uuid", "chrono", "migrate", "derive"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+argon2 = "0.5"
+rand = "0.8"
+dotenvy = "0.15"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+anyhow = "1"
+thiserror = "1"
+axum-extra = { version = "0.9", features = ["cookie", "typed-header"] }
+aws-sdk-s3 = "1"
+aws-config = "1"
+bytes = "1"
+time = "0.3"
