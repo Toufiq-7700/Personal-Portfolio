@@ -1,39 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+@import '../style/variables.css';
+@import '../style/base.css';
+@import '../style/splash.css';
+@import '../style/nav.css';
+@import '../style/hero.css';
+@import '../style/monitor.css';
+@import '../style/sections.css';
+@import '../style/about.css';
+@import '../style/skills.css';
+@import '../style/projects.css';
+@import '../style/contact.css';
+@import '../style/footer.css';
+@import '../style/home.css';
 
-:root {
-  --color-bg: #f0e8db;
-  --color-dark: #1a1208;
-  --color-maroon: #7a1f1f;
-  --color-accent: #8b3a1e;
-  --color-mid: #3d2b1f;
-  --color-muted: #7a6a58;
-  --nav-height: 70px;
-  --font-sans: 'Montserrat', sans-serif;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background-color: var(--color-bg);
-  color: var(--color-dark);
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  min-height: 100vh;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: var(--color-maroon); border-radius: 3px; }
-
-/* Admin area has its own background */
+/* Scoped styles for Admin CMS only */
 .admin-layout {
   background: #0f0f0f;
   color: #e5e5e5;
   min-height: 100vh;
+  font-family: var(--font-sans);
 }
