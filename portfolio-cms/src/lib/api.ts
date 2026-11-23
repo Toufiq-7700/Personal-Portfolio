@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+const API_BASE = typeof window !== 'undefined'
+  ? '' // In the browser, use relative paths to leverage Next.js proxying & seamless cookie handling
+  : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001');
 
 export const api = axios.create({
   baseURL: API_BASE,
