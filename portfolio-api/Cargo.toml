@@ -2,6 +2,7 @@
 name = "portfolio-api"
 version = "0.1.0"
 edition = "2021"
+default-run = "portfolio-api"
 
 [[bin]]
 name = "portfolio-api"
