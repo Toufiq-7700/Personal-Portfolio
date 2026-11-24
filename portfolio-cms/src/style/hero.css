@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  padding: 40px var(--page-pad-x) 40px calc(var(--page-pad-x) + 10px);
+  padding: 50px var(--page-pad-x);
   min-height: calc(100vh - var(--nav-height));
   position: relative;
   overflow: hidden;

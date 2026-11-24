@@ -6,9 +6,11 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
   return (
     <>
       <Splash />
-      <Nav />
-      {children}
-      <Footer />
+      <div className="site-wrapper">
+        <Nav />
+        {children}
+        <Footer />
+      </div>
     </>
   );
 }

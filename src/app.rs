@@ -29,22 +29,24 @@ pub fn App() -> impl IntoView {
         {move || (!splash_done.get()).then(|| view! { <Splash on_finish=on_splash_finish/> })}
         {move || splash_done.get().then(|| view! {
             <Router>
-                <Nav/>
-                <Routes fallback=|| view! {
-                    <main class="page-main not-found">
-                        <div class="container">
-                            <h1>"404"</h1>
-                            <p>"Page not found."</p>
-                        </div>
-                    </main>
-                }>
-                    <Route path=path!("/") view=HomePage/>
-                    <Route path=path!("/about") view=AboutPage/>
-                    <Route path=path!("/skills") view=SkillsPage/>
-                    <Route path=path!("/projects") view=ProjectsPage/>
-                    <Route path=path!("/contact") view=ContactPage/>
-                </Routes>
-                <Footer/>
+                <div class="site-wrapper">
+                    <Nav/>
+                    <Routes fallback=|| view! {
+                        <main class="page-main not-found">
+                            <div class="container">
+                                <h1>"404"</h1>
+                                <p>"Page not found."</p>
+                            </div>
+                        </main>
+                    }>
+                        <Route path=path!("/") view=HomePage/>
+                        <Route path=path!("/about") view=AboutPage/>
+                        <Route path=path!("/skills") view=SkillsPage/>
+                        <Route path=path!("/projects") view=ProjectsPage/>
+                        <Route path=path!("/contact") view=ContactPage/>
+                    </Routes>
+                    <Footer/>
+                </div>
             </Router>
         })}
     }
