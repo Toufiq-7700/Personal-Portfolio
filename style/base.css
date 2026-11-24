@@ -70,13 +70,15 @@ button {
   position: relative;
 }
 
-/* On desktop: center the entire design in the middle of the page with side gaps */
+/* On desktop: center the entire design in the middle of the page with 3D block relief shade background */
 @media (min-width: 821px) {
   body.ready:not(:has(.admin-layout)) {
-    background-color: #e5dac9;
-    background-image: radial-gradient(circle at 1px 1px, rgba(90, 40, 10, 0.09) 1.2px, transparent 0);
-    background-size: 26px 26px;
-    animation: bgPan 45s linear infinite;
+    background-color: #ede5d8;
+    background-image: url('/assets/images/blocks-bg-warm.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
   }
 
   .site-wrapper {
@@ -84,224 +86,14 @@ button {
     margin: 0 auto;
     border-left: 1px solid var(--color-border);
     border-right: 1px solid var(--color-border);
-    box-shadow: 0 10px 50px rgba(90, 40, 10, 0.08);
+    box-shadow: 0 16px 60px rgba(40, 20, 5, 0.16);
+    position: relative;
+    z-index: 1;
   }
 }
 
 @media (min-width: 1440px) {
   .site-wrapper {
     max-width: 1220px;
-  }
-}
-
-/* ── Side Decorative Geometric Shapes (Boxes & Triangles) ── */
-.side-decor-container {
-  display: none;
-}
-
-@media (min-width: 1240px) {
-  .side-decor-container {
-    display: block;
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-  }
-
-  .side-decor {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: calc((100vw - 1220px) / 2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 20px 8px;
-  }
-
-  .side-decor--left {
-    left: 0;
-  }
-
-  .side-decor--right {
-    right: 0;
-  }
-
-  /* Shape container with interactive hover reactivity */
-  .side-shape {
-    pointer-events: auto;
-    cursor: default;
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
-  }
-
-  .side-shape:hover {
-    transform: scale(1.18) translateY(-6px) !important;
-    filter: drop-shadow(0 10px 24px rgba(122, 31, 31, 0.22));
-  }
-
-  /* Fluid, active multi-axis floating animations */
-  .side-shape--float1 {
-    animation: sideFloat1 6.5s ease-in-out infinite alternate;
-  }
-
-  .side-shape--float2 {
-    animation: sideFloat2 8s ease-in-out infinite alternate;
-  }
-
-  .side-shape--float3 {
-    animation: sideFloat3 7s ease-in-out infinite alternate;
-  }
-
-  .side-shape--float4 {
-    animation: sideFloat4 9s ease-in-out infinite alternate;
-  }
-
-  /* Animated dashed blueprint circuit lines */
-  .animated-dash {
-    stroke-dasharray: 6 4;
-    animation: dashFlow 3.5s linear infinite;
-  }
-
-  .animated-dash-rev {
-    stroke-dasharray: 5 3;
-    animation: dashFlowRev 4.5s linear infinite;
-  }
-
-  /* Pulsing glowing vertex nodes */
-  .pulse-dot {
-    animation: dotPulse 2.8s ease-in-out infinite alternate;
-    transform-origin: center;
-    transform-box: fill-box;
-  }
-
-  /* Ambient drifting mini particles */
-  .side-particle {
-    opacity: 0.6;
-    pointer-events: none;
-  }
-
-  .side-particle--1 {
-    animation: particleDrift1 10s ease-in-out infinite alternate;
-  }
-
-  .side-particle--2 {
-    animation: particleDrift2 12s ease-in-out infinite alternate;
-  }
-
-  .side-particle--3 {
-    animation: particleDrift3 11s ease-in-out infinite alternate;
-  }
-}
-
-/* ── Keyframe Animations ── */
-@keyframes bgPan {
-  0% { background-position: 0 0; }
-  100% { background-position: 52px 52px; }
-}
-
-@keyframes dashFlow {
-  to {
-    stroke-dashoffset: -40;
-  }
-}
-
-@keyframes dashFlowRev {
-  to {
-    stroke-dashoffset: 40;
-  }
-}
-
-@keyframes dotPulse {
-  0% {
-    opacity: 0.35;
-    transform: scale(0.85);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.35);
-    filter: drop-shadow(0 0 5px var(--color-accent));
-  }
-}
-
-@keyframes sideFloat1 {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-16px) translateX(5px) rotate(4deg);
-  }
-  100% {
-    transform: translateY(-28px) translateX(-4px) rotate(-6deg);
-  }
-}
-
-@keyframes sideFloat2 {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
-  }
-  50% {
-    transform: translateY(18px) translateX(-6px) rotate(-5deg) scale(1.04);
-  }
-  100% {
-    transform: translateY(30px) translateX(4px) rotate(8deg) scale(0.98);
-  }
-}
-
-@keyframes sideFloat3 {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) translateX(-5px) rotate(6deg) scale(1.05);
-  }
-  100% {
-    transform: translateY(-10px) translateX(6px) rotate(-8deg) scale(1);
-  }
-}
-
-@keyframes sideFloat4 {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(22px) translateX(6px) rotate(7deg);
-  }
-  100% {
-    transform: translateY(32px) translateX(-5px) rotate(-5deg);
-  }
-}
-
-@keyframes particleDrift1 {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.4;
-  }
-  100% {
-    transform: translateY(-35px) rotate(90deg);
-    opacity: 0.8;
-  }
-}
-
-@keyframes particleDrift2 {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.35;
-  }
-  100% {
-    transform: translateY(30px) rotate(-60deg);
-    opacity: 0.75;
-  }
-}
-
-@keyframes particleDrift3 {
-  0% {
-    transform: translateY(0) scale(0.9);
-    opacity: 0.4;
-  }
-  100% {
-    transform: translateY(-28px) scale(1.15) rotate(45deg);
-    opacity: 0.85;
   }
 }
