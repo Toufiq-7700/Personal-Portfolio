@@ -70,14 +70,14 @@ button {
   position: relative;
 }
 
-/* On desktop: center the entire design in the middle of the page with 3D block relief shade background */
+/* On desktop: center the entire design in the middle of the page with 3D block relief soft shadow background */
 @media (min-width: 821px) {
   body.ready:not(:has(.admin-layout)) {
-    background-color: #ede5d8;
+    background-color: #ede7dc;
     background-image: url('/assets/images/blocks-bg-warm.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background-repeat: repeat;
+    background-size: 509px 270px;
+    background-position: center top;
     background-attachment: fixed;
   }
 
@@ -86,7 +86,7 @@ button {
     margin: 0 auto;
     border-left: 1px solid var(--color-border);
     border-right: 1px solid var(--color-border);
-    box-shadow: 0 16px 60px rgba(40, 20, 5, 0.16);
+    box-shadow: 0 10px 32px rgba(60, 30, 10, 0.07), 0 2px 6px rgba(60, 30, 10, 0.04);
     position: relative;
     z-index: 1;
   }
