@@ -13,6 +13,7 @@ use leptos_router::path;
 #[component]
 pub fn App() -> impl IntoView {
     let (splash_done, set_splash_done) = signal(false);
+    provide_context(set_splash_done);
 
     let on_splash_finish = Callback::new(move |()| {
         set_splash_done.set(true);

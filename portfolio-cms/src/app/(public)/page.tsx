@@ -16,6 +16,16 @@ export default function HomePage() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    const handleReset = () => {
+      setWordIndex(0);
+      setCurrentText('');
+      setIsDeleting(false);
+    };
+    window.addEventListener('restart-splash', handleReset);
+    return () => window.removeEventListener('restart-splash', handleReset);
+  }, []);
+
+  useEffect(() => {
     const currentWord = TYPEWRITER_WORDS[wordIndex];
     let timer: NodeJS.Timeout;
 

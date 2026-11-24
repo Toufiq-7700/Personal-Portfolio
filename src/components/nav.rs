@@ -5,11 +5,22 @@ use leptos_router::hooks::use_location;
 pub fn Nav() -> impl IntoView {
     let (is_open, set_is_open) = signal(false);
     let location = use_location();
+    let set_splash_done = use_context::<WriteSignal<bool>>();
 
     let close_menu = move || set_is_open.set(false);
 
     let is_active = move |path: &'static str| {
         location.pathname.with(|p| p == path)
+    };
+
+    let restart_intro = move |_| {
+        close_menu();
+        if let Some(set_done) = set_splash_done {
+            set_done.set(false);
+        }
+        if let Some(win) = web_sys::window() {
+            win.scroll_to_with_x_and_y(0.0, 0.0);
+        }
     };
 
     // Scroll to top automatically when navigating between pages
@@ -23,8 +34,14 @@ pub fn Nav() -> impl IntoView {
     view! {
         <header>
             <nav class="nav is-visible" aria-label="Main navigation">
-                <a href="/" class="nav__logo" on:click=move |_| close_menu()>
+                <a href="/" class="nav__logo" on:click=restart_intro title="Restart intro and return to start">
                     "TOUFIQ"<span class="dot">"."</span>
+                    <span class="nav__restart-btn" aria-hidden="true" title="Restart intro">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                            <path d="M3 3v5h5"/>
+                        </svg>
+                    </span>
                 </a>
 
                 <ul class="nav__links" class:is-open=move || is_open.get() role="list">

@@ -49,9 +49,33 @@ header {
   color: var(--color-accent);
 }
 
+.nav__restart-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: var(--color-muted);
+  opacity: 0.6;
+  transition: opacity var(--transition-fast), transform 0.4s var(--ease-out-expo), color var(--transition-fast);
+}
+
+.nav__restart-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
 .nav__logo:hover {
   color: var(--color-accent);
   transform: scale(1.03);
+}
+
+.nav__logo:hover .nav__restart-btn {
+  opacity: 1;
+  color: var(--color-accent);
+  transform: rotate(-180deg);
 }
 
 /* Links */
