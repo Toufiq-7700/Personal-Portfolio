@@ -74,6 +74,8 @@ button {
 @media (min-width: 821px) {
   body.ready:not(:has(.admin-layout)) {
     background-color: #e5dac9;
+    background-image: radial-gradient(circle at 1px 1px, rgba(90, 40, 10, 0.08) 1.2px, transparent 0);
+    background-size: 26px 26px;
   }
 
   .site-wrapper {
@@ -89,4 +91,80 @@ button {
   .site-wrapper {
     max-width: 1220px;
   }
+}
+
+/* ── Side Decorative Geometric Shapes (Boxes & Triangles) ── */
+.side-decor-container {
+  display: none;
+}
+
+@media (min-width: 1240px) {
+  .side-decor-container {
+    display: block;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .side-decor {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: calc((100vw - 1220px) / 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 30px 10px;
+  }
+
+  .side-decor--left {
+    left: 0;
+  }
+
+  .side-decor--right {
+    right: 0;
+  }
+
+  .side-shape {
+    transition: transform 0.6s ease;
+  }
+
+  .side-shape--float1 {
+    animation: sideFloat1 9s ease-in-out infinite alternate;
+  }
+
+  .side-shape--float2 {
+    animation: sideFloat2 12s ease-in-out infinite alternate;
+  }
+
+  .side-shape--float3 {
+    animation: sideFloat3 8s ease-in-out infinite alternate;
+  }
+
+  .side-shape--float4 {
+    animation: sideFloat4 11s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes sideFloat1 {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-14px) rotate(4deg); }
+}
+
+@keyframes sideFloat2 {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(12px) rotate(-5deg); }
+}
+
+@keyframes sideFloat3 {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-10px) scale(1.04); }
+}
+
+@keyframes sideFloat4 {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(15px) rotate(3deg); }
 }
