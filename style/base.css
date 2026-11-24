@@ -70,25 +70,31 @@ button {
   position: relative;
 }
 
-/* On desktop: center the entire design in the middle of the page with clean rectangular lines and simple shades */
+/* On desktop: center the entire design in the middle of the page with smart modern ambient lighting & precision grid */
 @media (min-width: 821px) {
   body.ready:not(:has(.admin-layout)) {
-    background-color: #ede6da;
+    background-color: #f2eee7;
     background-image:
-      linear-gradient(to right, rgba(90, 40, 10, 0.07) 1px, rgba(90, 40, 10, 0.015) 3px, transparent 4px),
-      linear-gradient(to bottom, rgba(90, 40, 10, 0.07) 1px, rgba(90, 40, 10, 0.015) 3px, transparent 4px),
-      radial-gradient(ellipse at 50% 15%, rgba(255, 255, 255, 0.45) 0%, rgba(90, 40, 10, 0.04) 100%);
-    background-size: 120px 72px, 120px 72px, 100% 100%;
-    background-position: center top;
+      radial-gradient(ellipse 80% 45% at 50% 0%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%),
+      radial-gradient(ellipse 65% 85% at 50% 40%, transparent 45%, rgba(210, 200, 185, 0.28) 100%),
+      linear-gradient(to right, rgba(90, 45, 15, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(90, 45, 15, 0.04) 1px, transparent 1px);
+    background-size: 100% 600px, 100% 100%, 80px 48px, 80px 48px;
+    background-position: center top, center center, center top, center top;
+    background-repeat: no-repeat, no-repeat, repeat, repeat;
     background-attachment: fixed;
   }
 
   .site-wrapper {
     max-width: min(1200px, calc(100vw - 64px));
     margin: 0 auto;
-    border-left: 1px solid var(--color-border);
-    border-right: 1px solid var(--color-border);
-    box-shadow: 0 8px 30px rgba(50, 25, 10, 0.06), 0 2px 6px rgba(50, 25, 10, 0.03);
+    border-left: 1px solid rgba(90, 45, 15, 0.1);
+    border-right: 1px solid rgba(90, 45, 15, 0.1);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.6) inset,
+      0 2px 6px rgba(40, 20, 5, 0.02),
+      0 12px 32px -4px rgba(40, 20, 5, 0.06),
+      0 32px 64px -12px rgba(40, 20, 5, 0.05);
     position: relative;
     z-index: 1;
   }
