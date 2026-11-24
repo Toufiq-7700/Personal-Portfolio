@@ -91,7 +91,7 @@ export default function AdminSkillsPage() {
           <div className="divide-y divide-[#222]">
             {isLoading ? <div className="p-6 text-gray-500 text-sm">Loading…</div> :
               skills.map(skill => (
-                <div key={skill.id} className="flex items-center justify-between px-5 py-3 hover:bg-white/5 transition-colors">
+                <div key={`${skill.id}-${skill.name}`} className="flex items-center justify-between px-5 py-3 hover:bg-white/5 transition-colors">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-0.5">
                       <span className="font-medium text-sm text-white">{skill.name}</span>

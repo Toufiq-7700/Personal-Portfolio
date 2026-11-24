@@ -47,7 +47,7 @@ export default function SkillsPage() {
 
           <div className="skills__grid">
             {filteredSkills.map((skill) => (
-              <div key={skill.id} className="skill-card">
+              <div key={`${skill.id}-${skill.name}`} className="skill-card">
                 <div className="skill-card__header">
                   <h3 className="skill-card__name">{skill.name}</h3>
                   <span className="skill-card__tag">{skill.tag}</span>
